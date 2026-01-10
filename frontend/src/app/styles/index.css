@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-primary: 255 255 255;
+    --color-bg-secondary: 248 250 252;
+    --color-text-primary: 15 23 42;
+    --color-text-secondary: 100 116 139;
+    --color-border: 226 232 240;
+    --color-accent: 236 119 29;
+  }
+
+  .dark {
+    --color-bg-primary: 15 23 42;
+    --color-bg-secondary: 30 41 59;
+    --color-text-primary: 248 250 252;
+    --color-text-secondary: 148 163 184;
+    --color-border: 51 65 85;
+    --color-accent: 240 148 66;
+  }
+
+  * {
+    @apply border-slate-200;
+  }
+
+  .dark * {
+    @apply border-slate-700;
+  }
+
+  body {
+    @apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100 dark:bg-slate-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400 dark:bg-slate-500;
+  }
+}
+
+@layer components {
+  /* Widget base styles */
+  .widget {
+    @apply bg-white dark:bg-slate-800 rounded-widget shadow-widget 
+           border border-slate-200 dark:border-slate-700
+           transition-all duration-200 ease-out;
+  }
+
+  .widget:hover {
+    @apply shadow-widget-hover;
+  }
+
+  /* Calendar specific styles */
+  .calendar-day {
+    @apply relative flex flex-col items-center justify-start p-1
+           min-h-[80px] border-r border-b border-slate-200 dark:border-slate-700
+           transition-colors duration-150;
+  }
+
+  .calendar-day:hover {
+    @apply bg-primary-50 dark:bg-slate-700;
+  }
+
+  .calendar-day.today {
+    @apply bg-primary-100 dark:bg-primary-900/30;
+  }
+
+  .calendar-day.selected {
+    @apply ring-2 ring-primary-500 ring-inset;
+  }
+
+  .calendar-day.other-month {
+    @apply bg-slate-50 dark:bg-slate-900 text-slate-400;
+  }
+
+  .calendar-day.weekend {
+    @apply text-red-500;
+  }
+
+  .calendar-day.holiday {
+    @apply text-red-600 font-medium;
+  }
+
+  /* Schedule item styles */
+  .schedule-item {
+    @apply px-2 py-1 text-xs rounded-md truncate cursor-pointer relative
+           transition-all duration-150 hover:opacity-80;
+  }
+
+  .schedule-item.priority-high {
+    @apply bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-200;
+  }
+
+  .schedule-item.priority-medium {
+    @apply bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-200;
+  }
+
+  .schedule-item.priority-low {
+    @apply bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-200;
+  }
+
+  .schedule-item.priority-default {
+    @apply bg-primary-100 text-primary-800 dark:bg-primary-900/50 dark:text-primary-200;
+  }
+
+  .has-img {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f59e0b, #ec4899);
+  }
+
+  .translate-x-7 {
+    --tw-translate-x: -1.5rem !important;
+  }
+
+  .translate-x-1 {
+    --tw-translate-x: 0.025rem !important;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+

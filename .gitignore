@@ -8,6 +8,10 @@
 **/.env
 **/.env.*
 
+# .env.example 파일은 허용 (환경 변수 템플릿)
+!.env.example
+!**/.env.example
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
